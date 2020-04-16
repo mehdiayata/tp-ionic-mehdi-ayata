@@ -1,7 +1,11 @@
-import { async, ComponentFixture, TestBed, ComponentFixtureAutoDetect } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
+import { Camera } from '@ionic-native/camera/ngx';
 
 import { HomePage } from './home.page';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 describe('HomePage', () => {
   let component: HomePage;
@@ -9,8 +13,9 @@ describe('HomePage', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomePage ],
-      imports: [IonicModule.forRoot()]
+      declarations: [HomePage],
+      imports: [IonicModule.forRoot(), RouterTestingModule],
+      providers: [Camera, Geolocation, LocalNotifications]
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomePage);

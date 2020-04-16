@@ -4,6 +4,7 @@ import User from '../models/User';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -14,14 +15,14 @@ export class HomePage implements OnInit {
 
   title: string;
   private user: User;
-  latitude: number;
-  longitude: number;
+  public latitude: number;
+  public longitude: number;
 
   constructor(private loginService: LoginService, private camera: Camera, private geolocation: Geolocation, private localNotifications: LocalNotifications) {}
 
   ngOnInit(): void {
  
-    let watch = this.geolocation.watchPosition();
+    let watch = this.geolocation.watchPosition().pipe(filter((p) => p.coords !== undefined));
     watch.subscribe((data) => {
 
       this.longitude = data.coords.longitude

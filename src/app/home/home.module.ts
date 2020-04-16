@@ -9,7 +9,7 @@ import {LoginService} from '../services/login.service';
 
 import { Camera } from '@ionic-native/camera/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { Toast } from '@ionic-native/toast/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @NgModule({
   imports: [
@@ -24,6 +24,6 @@ import { Toast } from '@ionic-native/toast/ngx';
     ])
   ],
   declarations: [HomePage],
-  providers: [LoginService, Camera, Geolocation, Toast]
+  providers: [LoginService, Camera, Geolocation, LocalNotifications]
 })
 export class HomePageModule {}
