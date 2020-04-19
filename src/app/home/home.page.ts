@@ -62,31 +62,21 @@ export class HomePage implements OnInit {
   }
 
   notificationTest() {
-    // Schedule a single notification
-this.localNotifications.schedule({
-  id: 1,
-  text: 'Single ILocalNotification',
-});
+
+  // Multiple notification
+  this.localNotifications.schedule([{
+   id: 1,
+   text: 'Notification multiple',
+  }
+]);
 
 
-// Schedule multiple notifications
+// Notification à un instant données
 this.localNotifications.schedule([{
    id: 1,
-   text: 'Multi ILocalNotification 1',
-  },{
-   id: 2,
-   title: 'Local ILocalNotification Example',
-   text: 'Multi ILocalNotification 2',
-   icon: 'http://example.com/icon.png'
-}]);
+   text: 'Notification dans le temps',
+   trigger: {at: new Date(new Date().getTime() + 3600)},}
+  ]);
+}
 
-
-// Schedule delayed notification
-this.localNotifications.schedule({
-   text: 'Delayed ILocalNotification',
-   trigger: {at: new Date(new Date().getTime() + 3600)},
-   led: 'FF0000',
-   sound: null
-});
-  }
 }

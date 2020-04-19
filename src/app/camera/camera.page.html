@@ -1,0 +1,30 @@
+<div class="container icon-camera">
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-between">
+      <ion-col size="6">
+        <div>
+          <ion-icon  (click)="stopCamera()" name="exit" routerLink="/home"> </ion-icon>
+        </div>
+      </ion-col>
+
+      <ion-col size="6">
+        <!-- l'icone camera-reverse ne s'affiche pas je l'ai remplacer par camera-->
+         <ion-icon (click)="switchCamera()" name="camera" class="icon-camera-switch"> </ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab-button (click)="takePicture()">
+    <ion-icon name="camera"></ion-icon>
+  </ion-fab-button>
+
+</div>
+
+
+
+
+
+
+
+
